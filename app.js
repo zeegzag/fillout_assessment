@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 
@@ -7,8 +8,7 @@ const PORT = process.env.PORT || 5000;
 app.get("/:formId/filteredResponses", async (req, res) => {
   try {
     const formId = req.params.formId;
-    const apiKey =
-      "sk_prod_TfMbARhdgues5AuIosvvdAC9WsA5kXiZlW8HZPaRDlIbCpSpLsXBeZO7dCVZQwHAY3P4VSBPiiC33poZ1tdUj2ljOzdTCCOSpUZ_3912";
+    const apiKey = process.env.FILLOUT_API_KEY;
 
     // Extract filters from the query parameters
     const filters = JSON.parse(req.query.filters);
